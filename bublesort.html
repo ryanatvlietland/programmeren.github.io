@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <title>Buble sort</title>
+  </head>
+
+  <body>
+
+    <h1>Mijn website over algoritmen</h1>
+
+    
+  </body>
+
+  <script>
+ 
+    var aantal;
+
+    window.alert("Geef aantal getallen op");
+    aantal = Number(window.prompt('Enter a value for aantal'));
+    var nummers = new Array(aantal);
+    var teller;
+
+    for (teller = 0; teller <= nummers.length - 1; teller++) {
+        nummers[teller] = Math.floor(Math.random() * 100);
+    }
+    weergaveArray(nummers);
+    sorteer(nummers);
+
+
+function sorteer(nummers) {
+    var i;
+    var j;
+    var temp;
+
+    for (i = 0; i <= nummers.length - 1; i++) {
+
+        // bijvoorbeeld: 8 7 5 3 8
+        // 
+        // 5 getallen ==> 4 x vergelijken
+        // 
+        // bij normale loop itereer je met index van 0 tot (lengte array) -1,
+        // nu moet je 1 iteratie eerder stoppen, dus 0 tot (lengte array) -2;
+        // 
+        // EN na iedere lus 1x eerder, vandaar dat j van de bovenliggende loop wordt meegenomen
+        for (j = 0; j <= nummers.length - i - 2; j++) {
+            if (nummers[j] > nummers[j + 1]) {
+                temp = nummers[j];
+                nummers[j] = nummers[j + 1];
+                nummers[j + 1] = temp;
+            }
+        }
+    }
+    window.alert("De gesorteerde waarde zijn");
+    weergaveArray(nummers);
+}
+
+function weergaveArray(nummers) {
+    var teller;
+    var tekst;
+
+    tekst = "";
+    for (teller = 0; teller <= nummers.length - 1; teller++) {
+        tekst = tekst + nummers[teller] + " ";
+    }
+    window.alert(tekst);
+}
+
+
+  </script>
+
+
+  
+</html>
